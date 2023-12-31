@@ -1,4 +1,4 @@
-# SQL_Employee_Tracker
+# SQL Employee Tracker
 Module 12 Challenge
 
 ## Description:
