@@ -1,17 +1,17 @@
-const inquirer = require('inquirer');
-const mysql = require('mysql2');
+const inquirer = require("inquirer");
+const mysql = require("mysql2");
 
 // Create MYSQL connection
 const connection = mysql.createConnection({
-    host: 'localhost',
-    port: process.env.PORT || 3001,
-    user: 'root',
-    password: '',
-    database: 'employeeTracker_db',
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "",
+    database: "employeeTracker_db",
 });
 
 // Connect to the database
-connection.connect((err) => {
+connection.connect(err => {
     if (err) throw err;
     console.log('Successfully conected to the database');
     start_app();
@@ -88,11 +88,10 @@ function start_app() {
 
 // Function to view all departments
 function viewAllDepartments() {
-    const query = 'SELECT * FROM departments';
+    const query = "SELECT * FROM departments";
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
-        // restart the application
         start_app();
     });
 }
@@ -103,7 +102,6 @@ function viewAllRoles() {
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
-        // restart the application
         start_app();
     });
 }
@@ -125,20 +123,22 @@ function viewAllEmployees() {
 // Function to add a department
 function addDepartment() {
     inquirer
-    .prompt({
-        type: 'input',
-        name: 'name',
-        message: 'Enter the name of the new department:',
-    })
-    .then((answer) => {
-        console.log(answer.name);
-        const query = `INSERT INTO departments (department_name) VALUES ('${answer.name}')`;
-        connection.query(query, (err, res) => {
-            if (err) throw err;
-            console.table(res);
-            start_app();
+        .prompt({
+            type: "input",
+            name: "name",
+            message: "Enter the name of the new department:",
+        })
+        .then((answer) => {
+            console.log(answer.name);
+            const query = `INSERT INTO departments (department_name) VALUES ("${answer.name}")`;
+            connection.query(query, (err, res) => {
+                if (err) throw err;
+                console.log(`Added department ${answer.name} to the database!`);
+                // restart the application
+                start_app();
+                console.log(answer.name);
+            });
         });
-    });
 }
 
 // Function to add a role

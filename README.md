@@ -34,7 +34,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Screenshot:
-
+[screenshot](./assets/img/Screenshot%202024-01-01%20173433.png)
 ## What I Learned:
 1. How to build a command-line application from scratch to manage a database, using Node.js, Inquirer, and MySQL.
 2. How to create and manage a content management system.
