@@ -166,7 +166,7 @@ function addRole() {
                 },
             ])
             .then((answers) => {
-                const department = res.find((department => department.name === andswers.department));
+                const department = res.find((department => department.name === answers.department));
                 const query = 'INSERT INTO roles SET ?';
                 connection.query( query,
                     {

@@ -1,4 +1,4 @@
---- Departments
+
 INSERT INTO departments (department_name)
 VALUES 
 ("Customer Relations"),
@@ -12,7 +12,7 @@ VALUES
 ("Manufacturing"),
 ("Research and Development");
 
---- Roles
+
 INSERT INTO roles (title, salary, department_id)
 VALUES 
 ("Customer Relations Manager", 60000.00, 1),
@@ -26,7 +26,7 @@ VALUES
 ("Manufacturing Manager", 145000.00, 9),
 ("Research and Development Manager ", 185000.00, 10);
 
---- Employees
+
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
 ("Thomas", "The Tank Engine", 1, 1),
